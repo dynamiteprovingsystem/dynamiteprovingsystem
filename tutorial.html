@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DYNAMITE/tutorial</title>
+<meta name="description" content="Dynamite-webpage/tutorial">
+<meta name="author" content="Azul Lopez">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+		<a class="navbar-brand page-scroll" href="index.html"><a class="navbar-brand page-scroll" href="#page-top">
+			<img src="./img/LogoDyn-small-white.png" alt="logo" class="logo">Dynamite</a></a></div>
+    
+	  <!-- "<i class="fa fa-play fa-rotate-270"></i>  -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html" class="page-scroll">Home</a></li>
+        <li><a href="index.html#about" class="page-scroll">About</a></li>
+        <li><a href="index.html#portfolio" class="page-scroll">Publications</a></li>
+        <li><a href="index.html#req" class="page-scroll">Download</a></li>
+<!--        <li><a href="index.html#contact" class="page-scroll">Contact</a></li>-->
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+<!-- Header -->
+<header class="header">
+  <div class="intro-tuto">
+    <div class="container">
+      <div class="row">
+        <div class="intro-text">
+          <h1>Tutorial</h1>
+			<hr class="hr-tuto">
+      </div>
+	  <div class="about-text">
+		<p>This simple tutorial will help you with the first steps in Dynamite. It will guide you in opening the system for first time and closing your first proof. Please send any comments and/or problems to <code>mmoscato@dc.uba.ar</code>.</p>
+	</div>
+					
+    </div>
+  </div>
+</header>
+<!-- About Section -->
+<div id="about-tuto">
+  <div class="container">
+<!--
+    <div class="section-title text-center center">
+      <h2>Starting the tutorial</h2>
+      <hr>
+    </div>
+-->
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="about-text">
+          	<p>First download this Alloy specification. We will use it in order to explain the basic DPS commands. (This Alloy specification is based on the model example "file_system.als" that can be found in the Alloy Analyzer distribution.)</p>
+			<p>Then you may want to create a working directory, in which the Alloy specification must be placed. Once in that directory, to run the tool you only have to execute the shell script dps, that can be found in the root of the instalation. For example, if the Dynamite Proving System was installed in the directory /opt/dps you may run the script by typing</p>
+     		<div class="panel-tutorial"><div class="panel-body-tutorial">~tutorial$ /opt/dps/dps</div></div>
+     	<h2>Loading the specification</h2>
+			<p>To load the Alloy specification, it is necessary to invoke the DPS command open-alloy-file. To do this, as usual in Emacs systems, you must hold the meta key (generally mapped to the Alt key) and press the x key, then you must type the name of the command: open-alloy-file. This kind of invocations will be abbreviated as</p>
+    		<div class="panel-tutorial"><div class="panel-body-tutorial">M-x open-alloy-file</div></div>
+			<p>Then, the system will ask for the name of the Alloy file to be loaded. The specification will be shown in the current Emacs buffer.</p>
+			<h2>Proving the assertion NoDirAliases</h2>
+			<p>To initiate the proof of an assertion, you must invoke the command</p>
+    		<div class="panel-tutorial"><div class="panel-body-tutorial">M-x prove-alloy-assert</div></div>
+			<p>because this is the name of the assertion we will prove.</p>
+			<p>A message will appear indicating whether the underlying theories needed to prove the assertion  could be correctly generated. If an error occurs during that process, it will be reported in the Emacs buffer called DynamiteTranslator output. To switch to this buffer, you may press the x key while holding the Ctrl key, then press the b key and after that enter the name of the buffer</p>
+			<div class="panel-tutorial"><div class="panel-body-tutorial">C-x b DynamiteTranslator output</div></div>
+			<p>After this, the main goal will be displayed in the *pvs* buffer. In this case, you will see the following</p>
+			<div class="panel-tutorial"><div class="panel-body-tutorial">NoDirAliases :<br/><br/>|-------<br/>{1}   (all O : Dir| (lone (contents . O) ) )<br/>Rule?</div></div>
+			<p>As in PVS, the user commands are typed in the Rule? prompt. The first command we will introduce, will be (skosimp*) to skolemize the quantified variables.</p>
+			<div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (skosimp*)</br>Repeatedly Skolemizing and flattening,</br>this simplifies to:</br>NoDirAliases :</br></br>|------- </br>{1}   (lone (contents . oh_1)</br>Rule?</div></div>
+			<p>The quantified variables have been replaced by fresh new constants. Now, we want to introduce the case in which oh_1 is the root directory. To do that, we will use the command dps-case. This command application yields two subgoals: NoDirAliases.1 and NoDirAliases.2. The former has the Alloy formula oh_1 in Root as a new hypothesis.</p>
+     		<div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (dps-case "oh_1 in Root")</br>
+  Translating the formula.</br>
+</br>
+  ...</br>
+</br>
+  Formula translated.</br>
+  Introducing case...,</br>
+  this yields  2 subgoals:</br>
+  NoDirAliases.1 :  </br>
+  </br>
+  {-1}  (oh_1 in Root)</br>
+      |-------</br>
+  [1]   (lone (contents . oh_1) )</br>
+  </br>
+  Rule?</div></div>
+			<p>At this point, we want to use the Alloy fact RootHasNoParent as another hypothesis in the proof. This fact is part of the same specification we loaded earlier, and states that the root directory has no parent.</p>
+    		<div class="panel-tutorial"><div class="panel-body-tutorial">fact RootHasNoParent { all r: Root | no r.parent  }</div></div>
+			<p>To do this, we type (use "RootHasNoParent") at the Rule? prompt.</p>
+			<div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (use "RootHasNoParent")</br>
+  ...</br>
+  Using lemma RootHasNoParent, </br>
+  this yields  2 subgoals:</br>
+  NoDirAliases.1.1 :  </br>
+  </br>
+  {-1}  (no (oh_1 . parent) )</br>
+  [-2]  (oh_1 in Root)</br>
+      |-------</br>
+  [1]   (lone (contents . oh_1) )</br>
+  </br>
+  Rule?</div></div>
+	<p>This command application opens a new branch in which we will have to be prove that oh_1 is the root directory. On the other hand, to close the current branch we need to use the following fact, that establish the relation between tha parent and the contents of a directory.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">fact ParentDefinition { all d: Dir | d.parent = (contents.d) . Name }</div></div>
+	<p>As before, this fact is introduced as a new hypothesis by applying the use command.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (use "ParentDefinition")</br>
+  Using lemma ParentDefinition,</br>
+  this simplifies to: </br>
+  NoDirAliases.1.1 :  </br>
+  </br>
+  {-1}  ( (oh_1 . parent) = ( (contents . oh_1) . Name) )</br>
+  [-2]  (no (oh_1 . parent) )</br>
+  [-3]  (oh_1 in Root)</br>
+    |-------</br>
+  [1]   (lone (contents . oh_1) )</br>
+  </br>
+  Rule?</div></div>
+	<p>Now, the hypotheses we have in the current goal can be used to prove that the set denoted by ( (contents . oh_1) . Name) is empty. Would it be the case that this assertion is sufficient to prove that contents . oh_1 is also empty?</p>
+	<p>We can use the Alloy Analyzer to search for counter examples of that implication. To do this, the command dps-hyp must be used.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (dps-hyp "no ( (contents.oh_1) . Name) => no contents.oh_1")</br>
+  Trying to validate the formula with models of size 3.</br>
+  No counter-example found in that scope. Formula translated.</br>
+  Introducing case...,</br>
+  this yields  2 subgoals:</br>
+  NoDirAliases.1.1.1 : </br>
+  </br>
+  {-1}  ( (no ( (contents . oh_1) . Name) ) => (no (contents . oh_1) ) )</br>
+  [-2]  ( (oh_1 . parent) = ( (contents . oh_1) . Name) )</br>
+  [-3]  (no (oh_1 . parent) )</br>
+  [-4]  (oh_1 in Root)</br>
+  |-------</br>
+  [1]   (lone (contents . oh_1) )</br>
+  </br>
+  Rule?</div></div>
+	<p>Since no counterexample were found, the formula is introduced as a hypothesis in this branch, and a new branch is opened, where this formula is stated as an obligation to be proved.</p>
+	<p>The current branch can be closed by applying the command (reduce), since no P => lone P is an known property (loaded when the proof begins).</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (reduce)</br>
+  ParentDefinition rewrites (oh_1 . parent)</br>
+    to ( (contents . oh_1) . Name)</br>
+  NoneImpliesLone rewrites (lone (contents . oh_1) )</br>
+    to TRUE</br>
+  Repeatedly simplifying with decision procedures, rewriting,</br>
+    propositional reasoning, quantifier instantiation, skolemization,</br>
+  if-lifting and equality replacement,</br>
+  </br>
+	   This completes the proof of NoDirAliases.1.1.1.</div></div>
+	<p>Then, the system automatically shows us the next open branch. In this case, the branch opened when the  dps-case was applied.</p>
+	<p>Now we can use the Alloy assertion Lemma1, present in the specification, as a lemma to close this branch.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (use "Lemma1")</br>
+  Using lemma Lemma1,</br>
+  </br>
+  This completes the proof of NoDirAliases.1.1.2.</br>
+  </br>
+	   This completes the proof of NoDirAliases.1.1.</div></div>
+	<p>To close the next open branch we need to prove that oh_1 is the root directory.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">NoDirAliases.1.2 (TCC):   </br>
+  </br>
+  [-1]  (oh_1 in Root)</br>
+    |-------</br>
+  {1}   ( (one oh_1) && (oh_1 in Root) )</br>
+  [2]   (lone (contents . oh_1) )</br>
+  </br>
+	   Rule?</div></div>
+	<p>As the sequent formula -1 is part of the conjunction in 1, we only have to focus our effort in prove that the other part of 1 also holds. To do that, we only need to use the predicates that characterize the constant oh_1.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (typepred "oh_1")</br>
+  ...</br>
+  Adding type constraints for oh_1,</br>
+  this simplifies to: </br>
+  NoDirAliases.1.2 :  </br>
+  </br>
+  {-1}  ( (one oh_1) && (oh_1 in Dir) )</br>
+  [-2]  (oh_1 in Root)</br>
+    |-------</br>
+  {1}   (one oh_1)</br>
+  [2]   (lone (contents . oh_1) )</br>
+  </br>
+	   Rule?</div></div>
+	<p>Just by applying the command (prop) this branch can be closed.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (prop)</br>
+  ...</br>
+  This completes the proof of file_system?NoDirAliases.1.2.</br>
+  </br>
+	   This completes the proof of file_system?NoDirAliases.1.</div></div>
+	<p>Now we have to prove the branch opened when we introduced the case in which oh_1 is the root directory. The following goal can be interpreted as the case in which oh_1 is a directory but it is not the root.</p>
+  <div class="panel-tutorial"><div class="panel-body-tutorial">file_system?NoDirAliases.2 :  </br>
+  </br>
+    |-------</br>
+  {1}   (oh_1 in Root)</br>
+  [2]   (lone (oh_1 . parent!1) )</br>
+  </br>
+	  Rule?</div></div>
+	<p>To close this branch, we would like to use the Alloy fact OneParent as a lemma. This fact establish that every directory that is not the root, have exactly one parent.</p>
+   <div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (use "OneParent")</br>
+  Using lemma OneParent,</br>
+  this simplifies to: </br>
+  NoDirAliases.2 :  </br>
+  </br>
+  {-1}  ( (oh_1 !in Root) => ( (one (oh_1 . parent) ) && (one (contents . oh_1) ) ) )</br>
+    |-------</br>
+  [1]   (oh_1 in Root)</br>
+  [2]   (lone (contents . oh_1) )</br>
+   </br>
+	   Rule?</div></div>
+	<p>Since one P => lone P is another pre-loaded lemma, we can close the branch applying (grind). Since there are no others open branches, the proof is completed.</p><div class="panel-tutorial"><div class="panel-body-tutorial">Rule? (grind)</br>
+  ...</br>
+  Trying repeated skolemization, instantiation, and if-lifting,</br>
+  </br>
+  This completes the proof of file_system?NoDirAliases.2.</br>
+  </br>
+	Q.E.D.</div></div>
+   		</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="footer">
+  <div class="container text-center">
+    <div class="fnav">
+      <p>Copyright &copy; DYNAMITE. Designed by Azul Lopez</p>
+<!--		<p>Copyright &copy; 2016 Spectrum. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>-->
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
